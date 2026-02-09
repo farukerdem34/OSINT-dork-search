@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Reset and Base Styles */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg-deep text-text-main font-sans antialiased;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-bg-base;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent/80;
+  }
+
+  /* Focus States */
+  :focus {
+    outline: none;
+  }
+
+  :focus-visible {
+    @apply ring-2 ring-accent ring-offset-2 ring-offset-bg-base;
+  }
+}
+
+/* Background System - 4 Layer Implementation */
+@layer components {
+  .bg-system {
+    position: relative;
+    min-height: 100vh;
+    background: 
+      /* Layer 1: Radial Gradient Base */
+      radial-gradient(circle at 25% 25%, rgba(94, 106, 210, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(0, 255, 65, 0.05) 0%, transparent 50%),
+      /* Layer 2: Base Color */
+      #050506;
+  }
+
+  .bg-system::before {
+    /* Layer 3: Noise Texture */
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-opacity='0.03'%3E%3Cpolygon fill='%23ffffff' points='50 0 60 40 100 50 60 60 50 100 40 60 0 50 40 40'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 100px 100px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: -2;
+  }
+
+  .bg-system::after {
+    /* Layer 4: Grid Overlay */
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: -1;
+    animation: grid-fade 0.5s ease-out;
+  }
+
+  /* Animated Blobs */
+  .floating-blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .blob-1 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, #5E6AD2, #00ff41);
+    top: 10%;
+    left: 10%;
+    animation: blob-float 20s infinite ease-in-out;
+  }
+
+  .blob-2 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #00ff41, #5E6AD2);
+    top: 60%;
+    right: 10%;
+    animation: blob-float 25s infinite ease-in-out reverse;
+  }
+
+  .blob-3 {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(225deg, #5E6AD2, rgba(255,255,255,0.1));
+    bottom: 20%;
+    left: 30%;
+    animation: blob-float 30s infinite ease-in-out;
+  }
+}
+
+/* Typography System */
+@layer components {
+  .text-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.5) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-neon {
+    color: #00ff41;
+    text-shadow: 0 0 10px #00ff41;
+  }
+
+  .text-glow {
+    color: #5E6AD2;
+    text-shadow: 0 0 20px rgba(94, 106, 210, 0.5);
+  }
+
+  /* Tech Labels */
+  .tech-label {
+    @apply text-xs font-mono tracking-widest uppercase text-white/40;
+  }
+
+  /* Headings */
+  .heading-xl {
+    @apply text-5xl font-semibold tracking-tight text-gradient;
+  }
+
+  .heading-lg {
+    @apply text-3xl font-semibold tracking-tight text-gradient;
+  }
+
+  .heading-md {
+    @apply text-xl font-medium tracking-tight text-white;
+  }
+}
+
+/* Glass Card System */
+@layer components {
+  .glass-card {
+    @apply relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-md;
+    @apply transition-all duration-300 hover:border-white/10 hover:bg-white/[0.05];
+  }
+
+  .glass-card-spotlight {
+    @apply pointer-events-none absolute -inset-px transition-opacity duration-300 opacity-0;
+  }
+
+  .glass-card:hover .glass-card-spotlight {
+    @apply opacity-100;
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hardware Acceleration */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  /* Perspective for 3D effects */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+}
+
+/* Animation Keyframes */
+@keyframes blob-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+@keyframes grid-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(94, 106, 210, 0.5);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 30px rgba(94, 106, 210, 0.7);
+  }
+}
+
+/* Performance Optimizations */
+@layer base {
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  
+  /* Font optimization */
+  body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Containment for performance */
+  .contain-layout {
+    contain: layout;
+  }
+  
+  .contain-paint {
+    contain: paint;
+  }
+  
+  .contain-size {
+    contain: size;
+  }
+  
+  .contain-strict {
+    contain: strict;
+  }
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
