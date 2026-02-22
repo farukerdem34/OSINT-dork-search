@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3469502188782084" crossorigin="anonymous"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MHWF85ZZ24"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MHWF85ZZ24');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defensive Dorking: Audit Your Own Website | DorkSearch PRO</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        /* ESTILO UNIFICADO (Igual que Top 10 Dorks) */
+        body { font-family: 'Share Tech Mono', monospace; }
+        
+        .article-container { max-width: 800px; margin: 0 auto; padding: 40px 20px; position: relative; z-index: 2; }
+        
+        /* Breadcrumb Tech */
+        .breadcrumb { 
+            color: #666; margin-bottom: 30px; font-size: 0.9rem; 
+            border-bottom: 1px dashed #333; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .breadcrumb a { color: var(--neon-green, #00ff41); text-decoration: none; }
+
+        /* Títulos */
+        h1 { font-size: 2.5rem; color: #fff; margin-bottom: 10px; letter-spacing: -1px; text-transform: uppercase; }
+        .meta-info { color: var(--neon-green, #00ff41); border-bottom: 1px solid #333; padding-bottom: 20px; margin-bottom: 40px; font-size: 0.9rem; letter-spacing: 1px; }
+
+        h2 { 
+            color: #fff; margin-top: 50px; margin-bottom: 20px; 
+            border-left: 4px solid var(--neon-green, #00ff41); padding-left: 15px; 
+            text-transform: uppercase; letter-spacing: 1px; 
+        }
+
+        p { color: #ccc; margin-bottom: 20px; font-size: 1.1rem; line-height: 1.6; }
+
+        /* DORK CARD / CMD BLOCK */
+        .dork-card {
+            background: #000;
+            border: 1px solid #333;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0;
+            position: relative;
+            border-left: 3px solid var(--neon-green, #00ff41);
+        }
+        .dork-card code {
+            color: var(--neon-green, #00ff41);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.1rem;
+            display: block;
+            word-break: break-all;
+        }
+        .dork-card::before {
+            content: ">> EXECUTE_QUERY:";
+            display: block;
+            font-size: 0.7rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        /* Listas */
+        ul, ol { margin-left: 20px; margin-bottom: 20px; color: #ccc; }
+        li { margin-bottom: 10px; padding-left: 10px; font-size: 1.1rem; }
+        li::marker { color: var(--neon-green, #00ff41); }
+
+        /* Inline code */
+        code.inline { 
+            background: #111; border: 1px solid #333; color: var(--neon-green, #00ff41); 
+            padding: 2px 8px; font-family: 'Share Tech Mono', monospace; font-size: 1rem;
+        }
+
+        /* Footer interno */
+        .article-footer {
+            margin-top: 50px; text-align: center; font-size: 0.9rem; color: #666; border-top: 1px solid #333; padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-overlay"></div>
+
+    <div class="article-container">
+        <div class="breadcrumb">
+            <a href="../index.html">TOOL</a> / <a href="index.html">ACADEMY</a> / DEFENSIVE_OPS
+        </div>
+
+        <article>
+            <h1>Defensive Dorking: How to Audit Your Own Website</h1>
+            <div class="meta-info">
+                <i class="fas fa-shield-alt"></i> UPDATED: 2026.01.05 // SECTOR: BLUE_TEAM_DEFENSE
+            </div>
+
+            <div style="margin: 30px 0; text-align: center; border-top: 1px dashed #333; padding-top: 20px;">
+                <p style="font-size:0.8rem; color:#666; margin-bottom:10px;">SPONSORED_INTEL:</p>
+                <script async="async" data-cfasync="false" src="https://pl28558446.effectivegatecpm.com/e81d07d58d502a501a18f60e43a6de72/invoke.js"></script>
+                <div id="container-e81d07d58d502a501a18f60e43a6de72"></div>
+            </div>
+
+            <p>Most security breaches don't start with a complex zero-day exploit. They start with a simple configuration error that exposes sensitive data to the public internet. "Defensive Dorking" is the practice of using Google search operators to audit your own organization.</p>
+
+            <h2>>> Why Audit Your Own Site?</h2>
+            <p>Google is constantly crawling your website. If you accidentally upload a file containing passwords for just 5 minutes, Google might index it. Even if you delete the file later, it could remain in Google's cache.</p>
+
+            <h2>Step 1: Digital Footprint Analysis</h2>
+            <p>The first step is to see everything Google knows about your domain. Use the <code class="inline">site:</code> operator without any other keywords.</p>
+            
+            <div class="dork-card">
+                <code>site:yourdomain.com</code>
+            </div>
+            
+            <p>Scroll through the results. Do you see test pages? Subdomains you thought were private? Old marketing PDFs?</p>
+
+            <h2>Step 2: Hunt for Sensitive Files</h2>
+            <p>As a defender, you should regularly run the same queries an attacker would use. Check for documents that shouldn't be public:</p>
+            
+            <ul>
+                <li><strong>Confidential Files:</strong> <code class="inline">site:yourdomain.com filetype:pdf confidential</code></li>
+                <li><strong>Exposed Spreadsheets:</strong> <code class="inline">site:yourdomain.com filetype:xlsx password</code></li>
+                <li><strong>Config Files:</strong> <code class="inline">site:yourdomain.com filetype:env</code></li>
+            </ul>
+
+            <h2>Step 3: Removal Protocol</h2>
+            <p>If you find a file that exposes sensitive data, deleting it from your server is not enough. You must follow this protocol:</p>
+            <ol>
+                <li>Delete the file from your server immediately.</li>
+                <li>Verify it returns a <strong>404 Not Found</strong> or <strong>403 Forbidden</strong> error.</li>
+                <li>Use the <strong>Google Search Console Removals Tool</strong> to request the immediate removal of the URL from search results.</li>
+            </ol>
+
+            <h2>>> Conclusion</h2>
+            <p>Security is a continuous process. We recommend setting up Google Alerts for your own domain combined with keywords like "password" or "confidential" to be notified immediately if sensitive data gets indexed.</p>
+
+        </article>
+        
+        <footer class="article-footer">
+            <p><a href="index.html" style="color:#888; text-decoration:none;">&lt; RETURN_TO_BASE</a></p>
+        </footer>
+    </div>
+
+  
+
+</body>
+</html>
+
